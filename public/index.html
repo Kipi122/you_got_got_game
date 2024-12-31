@@ -17,6 +17,47 @@
             flex-direction: column;
             gap: 20px;
         }
+
+        .intro-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .intro-section h1 {
+            color: #333;
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .intro-section p {
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .rules-section {
+            background-color: #e9ecef;
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .rules-section h2 {
+            color: #333;
+            font-size: 20px;
+            margin-top: 0;
+        }
+
+        .rules-section ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .rules-section li {
+            margin-bottom: 8px;
+            color: #555;
+        }
         
         .join-form, .missions {
             padding: 20px;
@@ -24,6 +65,7 @@
             border-radius: 5px;
         }
         
+        /* Rest of your existing styles remain the same */
         .mission-card {
             padding: 15px;
             margin: 10px 0;
@@ -115,6 +157,22 @@
 </head>
 <body>
     <div class="container">
+        <div class="intro-section">
+            <h1>Party Missions</h1>
+            <p>A simple way to mix things up at your party. Get random missions, interact with people, and see who can complete the most challenges.</p>
+            <p>Get your friends to join using a room code. Pick a username. You'll get 5 missions. Nothing too wild - just social challenges to keep things interesting. Complete a mission? Hit "Nailed it" and move on to the next one. Not feeling a particular mission? "Failed it" gets you a new one.</p>
+            
+            <div class="rules-section">
+                <h2>Ground Rules</h2>
+                <ul>
+                    <li>Keep it real - no fake completions</li>
+                    <li>Missions refresh automatically when completed or skipped</li>
+                    <li>Everyone sees who's in the lead</li>
+                    <li>That's it - pretty straightforward</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="join-form" id="joinForm">
             <h2>Join Party Room</h2>
             <div>
@@ -154,6 +212,7 @@
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
+        // Your existing JavaScript code remains the same
         const socket = io();
         let currentRoomId = null;
         let currentUsername = null;
