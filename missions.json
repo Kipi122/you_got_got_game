@@ -58,5 +58,65 @@
         "text": "Exchange social media handles with three new people",
         "gender": "any",
         "type": "inclusive"
+    },
+    {
+        "id": "m11",
+        "text": "Convince someone to sing a duet with you (no karaoke machine required)",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m12",
+        "text": "Get someone to reveal their most embarrassing drunk story",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m13",
+        "text": "Teach someone a silly dance move and get them to perform it in front of others",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m14",
+        "text": "Find two people who've never met before and make them take a selfie together",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m15",
+        "text": "Start a fake debate over an absurd topic (e.g., 'Is cereal a soup?') and get at least two people to join in",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m16",
+        "text": "Get someone to share an unpopular opinion and defend it for one minute",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m17",
+        "text": "Sneak a funny word (e.g., 'pickle', 'moonwalk', or 'unicorn') into three conversations without being caught",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m18",
+        "text": "Convince someone to swap an item of clothing or an accessory with you for 10 minutes",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m19",
+        "text": "Start a group cheer or chant without telling people why they're cheering",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m20",
+        "text": "Get someone to tell you their color of their underwear",
+        "gender": "any",
+        "type": "inclusive"
     }
 ]
