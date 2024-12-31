@@ -49,7 +49,7 @@
     },
     {
         "id": "m9",
-        "text": "Find someone with the same birth month as you",
+        "text": "Find someone with the same birth month as you, which is not your partner",
         "gender": "any",
         "type": "inclusive"
     },
@@ -116,6 +116,198 @@
     {
         "id": "m20",
         "text": "Get someone to tell you their color of their underwear",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m21",
+        "text": "Learn the names of someone's grandparents",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m22",
+        "text": "Drink from someone's drink, take a big sip",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m23",
+        "text": "Put a name of someone in his pocket without them knowing",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m24",
+        "text": "Put 3 cookies on someone",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m25",
+        "text": "Give someone a riddle. They need to solve it",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m26",
+        "text": "Get 6 people to yell \"Eyali\"",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m27",
+        "text": "Get someone who doesn't know someone to cheer's for their (not real) birthday",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m28",
+        "text": "Get another player to finish one of your sentences",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m29",
+        "text": "Tell a joke and get another player to complete the punchline",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m30",
+        "text": "Get another player to show you a scar on their body",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m31",
+        "text": "Get another player to explain/talk about their tattoo",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m32",
+        "text": "Get another player to tell a joke",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m33",
+        "text": "Get another player to give you medical advice",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m34",
+        "text": "Get another player to say something in a foreign accent",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m35",
+        "text": "Get another player to tell you about their dream",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m36",
+        "text": "Get another player to disagree with you over the color of something",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m37",
+        "text": "Get another player to repeat themselves three times",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m38",
+        "text": "Make up a word and get another player to ask what it means",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m39",
+        "text": "Get another player to compliment your hair",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m40",
+        "text": "Get another player to make an animal noise",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m41",
+        "text": "Get another player to play Rock-Paper-Scissors with you (until you win)",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m42",
+        "text": "Get another player to touch their own ears",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m43",
+        "text": "Get a player to tell you about the worst present they ever received",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m44",
+        "text": "Get another player to take a picture of yourself and message it to you",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m45",
+        "text": "Get another player to say their favorite superhero",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m46",
+        "text": "Get a movie quote wrong and get another player to correct you",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m47",
+        "text": "Get a player to high-five you twice in one day",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m48",
+        "text": "\"Poison\" another player by putting Gumi in their drink, they need to drink",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m49",
+        "text": "Tell a player something is voice activated. Get them to try it",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m50",
+        "text": "Get a player to do an impression of you",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m51",
+        "text": "Get a player to say something in a different language",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m52",
+        "text": "Make up a word and get another player to ask you what it means",
         "gender": "any",
         "type": "inclusive"
     }
