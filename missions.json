@@ -1,0 +1,62 @@
+[
+    {
+        "id": "m1",
+        "text": "Get three people to do a group selfie with you",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m2",
+        "text": "Find someone wearing the same color as you and take a photo together",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m3",
+        "text": "Get someone to teach you a dance move",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m4",
+        "text": "Find someone with the same zodiac sign as you",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m5",
+        "text": "Get three compliments from different people",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m6",
+        "text": "Start a conga line with at least 4 people",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m7",
+        "text": "Find someone who speaks another language and learn a phrase",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m8",
+        "text": "Get someone to share their best party story",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m9",
+        "text": "Find someone with the same birth month as you",
+        "gender": "any",
+        "type": "inclusive"
+    },
+    {
+        "id": "m10",
+        "text": "Exchange social media handles with three new people",
+        "gender": "any",
+        "type": "inclusive"
+    }
+]

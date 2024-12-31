@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Missions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .join-form, .missions {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .mission-card {
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        
+        .mission-completed {
+            background-color: #90EE90;
+            border-color: #3CB371;
+        }
+        
+        .mission-status {
+            margin-top: 5px;
+            font-weight: bold;
+            color: #228B22;
+        }
+        
+        .mission-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .complete-btn:hover:not(:disabled) {
+            background-color: #90EE90;
+            border-color: #3CB371;
+        }
+
+        .fail-btn:hover:not(:disabled) {
+            background-color: #ffebee;
+            border-color: #ffcdd2;
+        }
+        
+        .players-list {
+            margin-top: 20px;
+        }
+
+        .player-item {
+            padding: 8px;
+            margin: 4px 0;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .player-item.current-user {
+            background-color: #e3f2fd;
+        }
+        
+        .mission-count {
+            background-color: #4CAF50;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 14px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+
+        .room-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="join-form" id="joinForm">
+            <h2>Join Party Room</h2>
+            <div>
+                <label for="roomId">Room ID:</label>
+                <input type="text" id="roomId" required>
+            </div>
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+            </div>
+            <div>
+                <label for="gender">Gender:</label>
+                <select id="gender">
+                    <option value="any">Any</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <button onclick="joinRoom()">Join Room</button>
+        </div>
+
+        <div class="missions hidden" id="missionsContainer">
+            <div class="room-header">
+                <div>Room: <strong id="currentRoom"></strong></div>
+                <div>Your completed missions: <span id="completedMissions" class="mission-count">0</span></div>
+            </div>
+
+            <h2>Your Missions</h2>
+            <div id="missionsList"></div>
+            
+            <div class="players-list">
+                <h3>Players in Room</h3>
+                <div id="playersList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        let currentRoomId = null;
+        let currentUsername = null;
+
+        function joinRoom() {
+            const roomId = document.getElementById('roomId').value;
+            const username = document.getElementById('username').value;
+            const gender = document.getElementById('gender').value;
+
+            if (!roomId || !username) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            currentRoomId = roomId;
+            currentUsername = username;
+            document.getElementById('currentRoom').textContent = roomId;
+
+            socket.emit('joinRoom', { roomId, username, gender });
+
+            document.getElementById('joinForm').classList.add('hidden');
+            document.getElementById('missionsContainer').classList.remove('hidden');
+        }
+
+        function handleMission(missionId, status) {
+            const missionCard = document.querySelector(`[data-mission-id="${missionId}"]`);
+            if (!missionCard || missionCard.classList.contains('mission-completed')) {
+                return;
+            }
+
+            const buttons = missionCard.querySelectorAll('button');
+            buttons.forEach(button => button.disabled = true);
+
+            socket.emit('completeMission', {
+                roomId: currentRoomId,
+                missionId,
+                status
+            });
+
+            setTimeout(() => {
+                buttons.forEach(button => button.disabled = false);
+            }, 5000);
+        }
+
+        function renderMissions(missions) {
+            const missionsList = document.getElementById('missionsList');
+            const completedCount = missions.filter(m => m.status === 'completed').length;
+            document.getElementById('completedMissions').textContent = completedCount;
+            
+            missionsList.innerHTML = missions.map(mission => {
+                const isCompleted = mission.status === 'completed';
+                return `
+                    <div class="mission-card ${isCompleted ? 'mission-completed' : ''}" 
+                         data-mission-id="${mission.id}">
+                        <div class="mission-text">${mission.text}</div>
+                        ${isCompleted ? 
+                            `<div class="mission-status">✓ Completed!</div>` :
+                            `<div class="mission-actions">
+                                <button onclick="handleMission('${mission.id}', 'completed')" 
+                                        class="complete-btn">Nailed it! 🎉</button>
+                                <button onclick="handleMission('${mission.id}', 'failed')" 
+                                        class="fail-btn">Failed it 😅</button>
+                            </div>`
+                        }
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderPlayers(players) {
+            const playersList = document.getElementById('playersList');
+            playersList.innerHTML = players.map(player => `
+                <div class="player-item ${player.username === currentUsername ? 'current-user' : ''}">
+                    <span>${player.username} ${player.username === currentUsername ? '(You)' : ''}</span>
+                    <span class="mission-count">${player.completedMissions?.length || 0}</span>
+                </div>
+            `).join('');
+        }
+
+        socket.on('initialMissions', (missions) => {
+            renderMissions(missions);
+        });
+
+        socket.on('missionsUpdate', (missions) => {
+            renderMissions(missions);
+        });
+
+        socket.on('playersUpdate', (players) => {
+            renderPlayers(players);
+        });
+
+        socket.on('connect_error', (error) => {
+            console.error('Connection error:', error);
+            alert('Connection error. Please refresh the page.');
+        });
+    </script>
+</body>
+</html>
